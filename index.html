@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bhavesh Yogesh Garale | Websites and AI tools for any business</title>
+  <meta name="description"
+    content="I build fast websites and AI tools for any business. See my work and message me on WhatsApp.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=DM+Sans:wght@400;500;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg: #EEF1F6;
+      --ink: #14213D;
+      --muted: #4B5873;
+      --line: #CBD3E3;
+      --blue: #2F5BFF;
+      --key: #FFFFFF;
+      --yellow: #FFC93C;
+      --card: #F8F9FC;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "DM Sans", system-ui, sans-serif;
+      line-height: 1.6;
+      font-size: 17px
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: "Bricolage Grotesque", "DM Sans", system-ui, sans-serif;
+      line-height: 1.1
+    }
+
+    a {
+      color: inherit
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--blue);
+      outline-offset: 3px
+    }
+
+    .wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 20px
+    }
+
+    section {
+      padding: 64px 0
+    }
+
+    h2 {
+      font-size: clamp(28px, 5vw, 40px);
+      margin-bottom: 12px
+    }
+
+    .lead {
+      color: var(--muted);
+      max-width: 56ch;
+      margin-bottom: 32px
+    }
+
+    /* Hero: name as keyboard keys */
+    .hero {
+      padding: 72px 0 56px
+    }
+
+    .keys {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 28px
+    }
+
+    .key {
+      min-width: clamp(38px, 9vw, 64px);
+      height: clamp(44px, 10vw, 70px);
+      padding: 0 10px;
+      display: grid;
+      place-items: center;
+      background: var(--key);
+      border: 2px solid var(--ink);
+      border-radius: 10px;
+      box-shadow: 0 6px 0 var(--ink);
+      font: 800 clamp(20px, 5vw, 34px) "Bricolage Grotesque", sans-serif;
+      transition: transform .08s, box-shadow .08s;
+      cursor: default;
+      user-select: none
+    }
+
+    .key:hover {
+      transform: translateY(4px);
+      box-shadow: 0 2px 0 var(--ink)
+    }
+
+    .key.gap {
+      visibility: hidden;
+      min-width: 14px
+    }
+
+    .key.hl {
+      background: var(--yellow)
+    }
+
+    @media (prefers-reduced-motion:no-preference) {
+      .key {
+        animation: press .35s ease both;
+        animation-delay: calc(var(--i)*60ms)
+      }
+
+      @keyframes press {
+        0% {
+          transform: translateY(-12px);
+          opacity: 0
+        }
+
+        100% {
+          transform: none;
+          opacity: 1
+        }
+      }
+    }
+
+    .hero h1 {
+      font-size: clamp(30px, 6vw, 52px);
+      max-width: 18ch;
+      margin-bottom: 16px
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 52ch;
+      margin-bottom: 28px
+    }
+
+    .btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 22px;
+      border-radius: 10px;
+      font-weight: 700;
+      text-decoration: none;
+      border: 2px solid var(--ink)
+    }
+
+    .btn.primary {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff
+    }
+
+    .btn.ghost {
+      background: transparent
+    }
+
+    .btn:hover {
+      filter: brightness(.93)
+    }
+
+    /* Projects */
+    .grid {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr))
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column
+    }
+
+    .shot {
+      aspect-ratio: 16/9;
+      background: linear-gradient(135deg, #DDE4F5, #C4D0F0);
+      display: grid;
+      place-items: center;
+      color: var(--muted);
+      font-size: 14px
+    }
+
+    .shot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block
+    }
+
+    .card .body {
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1
+    }
+
+    .card h3 {
+      font-size: 22px
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 15.5px;
+      flex: 1
+    }
+
+    .tags {
+      font-size: 13px;
+      color: var(--ink);
+      font-weight: 500
+    }
+
+    .links {
+      display: flex;
+      gap: 14px;
+      font-weight: 700;
+      font-size: 15px
+    }
+
+    .links a {
+      color: var(--blue)
+    }
+
+    /* Services */
+    .services {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))
+    }
+
+    .svc {
+      border-left: 4px solid var(--blue);
+      padding: 4px 0 4px 16px
+    }
+
+    .svc h3 {
+      font-size: 21px;
+      margin-bottom: 6px
+    }
+
+    .svc p {
+      color: var(--muted);
+      font-size: 15.5px
+    }
+
+    /* How I work + contact */
+    .note {
+      background: var(--ink);
+      color: #fff;
+      border-radius: 16px;
+      padding: 28px
+    }
+
+    .note h2 {
+      margin-bottom: 10px
+    }
+
+    .note p {
+      color: #C9D3EC;
+      max-width: 60ch;
+      margin-bottom: 22px
+    }
+
+    .note .btn.ghost {
+      border-color: #fff;
+      color: #fff
+    }
+
+    footer {
+      padding: 28px 0 40px;
+      color: var(--muted);
+      font-size: 14px
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="hero">
+    <div class="wrap">
+      <!-- STEP 1: apna naam yahan keys me likho. Har letter ek <span class="key">. Do naam ke beech <span class="key gap"></span> -->
+      <div class="keys" aria-label="Bhavesh Yogesh Garale">
+        <span class="key hl" style="--i:0">B</span><span class="key" style="--i:1">H</span><span class="key"
+          style="--i:2">A</span><span class="key" style="--i:3">V</span><span class="key" style="--i:4">E</span><span
+          class="key" style="--i:5">S</span><span class="key" style="--i:6">H</span><span class="key gap"
+          style="--i:7"></span><span class="key" style="--i:8">G</span><span class="key" style="--i:9">A</span><span
+          class="key" style="--i:10">R</span><span class="key" style="--i:11">A</span><span class="key"
+          style="--i:12">L</span><span class="key" style="--i:13">E</span>
+      </div>
+      <h1>Websites and AI tools for any business.</h1>
+      <p>I build fast, mobile-friendly websites and simple AI chatbots. I use AI tools to build quickly, then test
+        everything myself before I hand it over.</p>
+      <div class="btns">
+        <!-- STEP 2: 91948984XXXX ki jagah apna number (country code ke saath, bina + ke) -->
+        <a class="btn primary" href="https://wa.me/7588301650?text=Hi%2C%20I%20want%20a%20website%20for%20my%20business"
+          target="_blank" rel="noopener">Message me on WhatsApp</a>
+        <a class="btn ghost" href="#work">See my work</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="work">
+      <div class="wrap">
+        <h2>Things I've built</h2>
+        <p class="lead">All of these are live. Open them on your phone and try them.</p>
+        <div class="grid">
+
+          <!-- STEP 3: har card me apna screenshot (images folder me daalo), Live aur GitHub link badlo -->
+          <article class="card">
+            <div class="shot"><img src="C:\Users\HP\OneDrive\Pictures\Screenshots\Gamefinder.png" alt="GameFinder screenshot" onerror="this.remove()">
+            </div>
+            <div class="body">
+              <h3>GameFinder</h3>
+              <p>A website that helps you find games to play, so you spend less time searching.</p>
+              <div class="tags">HTML · CSS · JavaScript</div>
+              <div class="links"><a href="https://gamefinder-fawn.vercel.app/" target="_blank" rel="noopener">Live
+                  demo</a><a href="https://github.com/bhaveshgarale7855-bit/gamefinder" target="_blank"
+                  rel="noopener">GitHub</a></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="shot"><img src="images/typingmaster.png" alt="TypingMaster Pro screenshot"
+                onerror="this.remove()"></div>
+            <div class="body">
+              <h3>TypingMaster Pro</h3>
+              <p>A typing practice site where you test your speed and see how you improve.</p>
+              <div class="tags">HTML · CSS · JavaScript</div>
+              <div class="links"><a href="https://typemaster-pro-lovat.vercel.app/" target="_blank" rel="noopener">Live
+                  demo</a><a href="https://github.com/bhaveshgarale7855-bit/typemaster-pro" target="_blank"
+                  rel="noopener">GitHub</a></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="shot"><img src="images/voice-hand.png" alt="Voice and hand control module screenshot"
+                onerror="this.remove()"></div>
+            <div class="body">
+              <h3>Voice and hand control</h3>
+              <p>A module that reacts to your voice and to hand movements, with no keyboard or mouse needed.</p>
+              <div class="tags">JavaScript · AI</div>
+              <div class="links"><a href="https://ultron-core-3d.vercel.app/" target="_blank" rel="noopener">Live
+                  demo</a><a href="https://github.com/bhaveshgarale7855-bit/ultron-core-3d" target="_blank"
+                  rel="noopener">GitHub</a></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="shot"><img src="images/independence-day.png" alt="Independence Day wishes page screenshot"
+                onerror="this.remove()"></div>
+            <div class="body">
+              <h3>Independence Day wishes</h3>
+              <p>A greeting page I made for my friends. It shows how I can build a custom page for any event.</p>
+              <div class="tags">HTML · CSS · JavaScript</div>
+              <div class="links"><a href="https://independence-day-friends-final.vercel.app/" target="_blank" rel="noopener">Live
+                  demo</a><a href="https://github.com/bhaveshgarale7855-bit/independence-day" target="_blank"
+                  rel="noopener">GitHub</a></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="shot"><img src="images/solar-system.png" alt="Solar System project screenshot"
+                onerror="this.remove()"></div>
+            <div class="body">
+              <h3>Solar System</h3>
+              <p>An interactive website where you can explore the planets of our solar system and learn about each one.
+              </p>
+              <div class="tags">HTML · CSS · JavaScript</div>
+              <div class="links"><a href="https://solar-system-nine-lovat.vercel.app/" target="_blank" rel="noopener">Live
+                  demo</a><a href="https://github.com/bhaveshgarale7855-bit/solar-system" target="_blank"
+                  rel="noopener">GitHub</a></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="shot"><img src="C:\Users\HP\OneDrive\Pictures\Screenshots\Screenshot 2026-10-19 131019.png" alt="Iron District Fitness website screenshot"
+                onerror="this.remove()"></div>
+            <div class="body">
+              <h3>Iron District Fitness</h3>
+              <p>A gym website with plans, trainers and contact details, a good example of what I can build for a
+                business.</p>
+              <div class="tags">HTML · CSS · JavaScript</div>
+              <div class="links"><a href="https://iron-district-fitness-jade.vercel.app/" target="_blank" rel="noopener">Live
+                  demo</a><a href="https://github.com/bhaveshgarale7855-bit/iron-district-fitness" target="_blank"
+                  rel="noopener">GitHub</a></div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2>What I can build for you</h2>
+        <p class="lead">Simple, clear work with a fixed price and a fixed time.</p>
+        <div class="services">
+          <div class="svc">
+            <h3>Business website</h3>
+            <p>A fast site for your shop, coaching class, salon or gym. It looks good on phones and shows your fees,
+              photos and contact details.</p>
+          </div>
+          <div class="svc">
+            <h3>AI chatbot</h3>
+            <p>A chatbot that answers common customer questions on your website, so you don't repeat the same replies
+              all day.</p>
+          </div>
+          <div class="svc">
+            <h3>Changes to your site</h3>
+            <p>Want a new section, new prices or a design update on an existing website? I can make the change.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="note">
+          <h2>Let's talk about your website</h2>
+          <p>Tell me what your business does. I'll reply with what I can build, how long it takes and the price.</p>
+          <div class="btns">
+            <a class="btn primary"
+              href="https://wa.me/7588301650?text=Hi%2C%20I%20want%20a%20website%20for%20my%20business" target="_blank"
+              rel="noopener">Message me on WhatsApp</a>
+            <!-- STEP 4: apna email -->
+            <a class="btn ghost" href="mailto:Bhaveshgarale7855@gmail.com">Send an email</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">© 2026 Bhavesh Yogesh Garale. Built by me.</div>
+  </footer>
+
+</body>
+
+</html>
