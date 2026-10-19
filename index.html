@@ -5,6 +5,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Bhavesh Yogesh Garale | Websites and AI tools for any business</title>
+  <meta name="theme-color" content="#2F5BFF">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⌨️</text></svg>">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Bhavesh Yogesh Garale | Websites and AI tools for any business">
+  <meta property="og:description"
+    content="I build fast websites and AI tools for any business. See my work and message me on WhatsApp.">
+  <meta property="og:image" content="https://bhaveshgarale-portfolio-7855.vercel.app/images/preview.png">
+  <meta property="og:url" content="https://bhaveshgarale-portfolio-7855.vercel.app/">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="description"
     content="I build fast websites and AI tools for any business. See my work and message me on WhatsApp.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -297,10 +307,118 @@
       color: var(--muted);
       font-size: 14px
     }
+
+    /* Dark mode */
+    :root[data-theme="dark"] {
+      --bg: #0F1629;
+      --ink: #EEF1F6;
+      --muted: #A9B4CF;
+      --line: #2A3558;
+      --card: #18213D;
+      --key: #1D2748
+    }
+
+    :root[data-theme="dark"] .key.hl {
+      color: #14213D
+    }
+
+    :root[data-theme="dark"] .note {
+      background: #18213D;
+      border: 1px solid var(--line)
+    }
+
+    :root[data-theme="dark"] .shot {
+      background: linear-gradient(135deg, #222E55, #1A2447)
+    }
+
+    :root[data-theme="dark"] .btn.ghost {
+      border-color: var(--ink)
+    }
+
+    .theme-btn {
+      position: fixed;
+      top: 14px;
+      right: 14px;
+      z-index: 20;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 2px solid var(--ink);
+      background: var(--card);
+      color: var(--ink);
+      font-size: 20px;
+      cursor: pointer
+    }
+
+    /* Floating WhatsApp */
+    .wa-float {
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: #25D366;
+      color: #0B3D1E;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, .25)
+    }
+
+    .wa-float:hover {
+      filter: brightness(.95)
+    }
+
+    /* About */
+    .about {
+      display: grid;
+      gap: 28px;
+      grid-template-columns: 200px 1fr;
+      align-items: center
+    }
+
+.about .pic{position:relative;width:200px;height:200px;border-radius:50%;background:linear-gradient(135deg,#DDE4F5,#C4D0F0);border:3px solid var(--ink);overflow:hidden;display:grid;place-items:center;font:800 56px "Bricolage Grotesque",sans-serif;color:var(--ink)}
+.about .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 35%;display:block}
+
+    .about p {
+      color: var(--muted);
+      margin-bottom: 12px;
+      max-width: 58ch
+    }
+
+    @media(max-width:640px) {
+      .about {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        text-align: center
+      }
+    }
+
+    /* Skills */
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px
+    }
+
+    .chip {
+      padding: 8px 16px;
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 15px;
+      background: var(--card)
+    }
   </style>
 </head>
 
 <body>
+  <button class="theme-btn" id="themeBtn" aria-label="Switch dark or light mode">🌙</button>
+  <a class="wa-float" href="https://wa.me/7588301650?text=Hi%2C%20I%20want%20a%20website%20for%20my%20business"
+    target="_blank" rel="noopener">💬 WhatsApp</a>
 
   <header class="hero">
     <div class="wrap">
@@ -326,6 +444,23 @@
   </header>
 
   <main>
+
+    <section id="about">
+      <div class="wrap">
+        <div class="about">
+          <!-- <div class="pic"><img src="images/me.jpg" alt="Bhavesh Garale" onerror="this.remove()">B</div> -->
+          <div class="pic"><span>B</span><img src="images/me.jpg" alt="Bhavesh Garale" onerror="this.remove()"></div>
+          <div>
+            <h2>About me</h2>
+            <p>Hi, I'm Bhavesh, a BCA student and web developer. I like turning ideas into working websites, games and AI
+              tools.</p>
+            <p>I build with the help of AI tools, test every feature myself, and keep learning code every day. I can
+              give you a clear price.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="work">
       <div class="wrap">
         <h2>Things I've built</h2>
@@ -379,7 +514,8 @@
               <h3>Independence Day wishes</h3>
               <p>A greeting page I made for my friends. It shows how I can build a custom page for any event.</p>
               <div class="tags">HTML · CSS · JavaScript</div>
-              <div class="links"><a href="https://independence-day-friends-final.vercel.app/" target="_blank" rel="noopener">Live
+              <div class="links"><a href="https://independence-day-friends-final.vercel.app/" target="_blank"
+                  rel="noopener">Live
                   demo</a><a href="https://github.com/bhaveshgarale7855-bit/independence-day" target="_blank"
                   rel="noopener">GitHub</a></div>
             </div>
@@ -393,7 +529,8 @@
               <p>An interactive website where you can explore the planets of our solar system and learn about each one.
               </p>
               <div class="tags">HTML · CSS · JavaScript</div>
-              <div class="links"><a href="https://solar-system-nine-lovat.vercel.app/" target="_blank" rel="noopener">Live
+              <div class="links"><a href="https://solar-system-nine-lovat.vercel.app/" target="_blank"
+                  rel="noopener">Live
                   demo</a><a href="https://github.com/bhaveshgarale7855-bit/solar-system" target="_blank"
                   rel="noopener">GitHub</a></div>
             </div>
@@ -407,7 +544,8 @@
               <p>A gym website with plans, trainers and contact details, a good example of what I can build for a
                 business.</p>
               <div class="tags">HTML · CSS · JavaScript</div>
-              <div class="links"><a href="https://iron-district-fitness-jade.vercel.app/" target="_blank" rel="noopener">Live
+              <div class="links"><a href="https://iron-district-fitness-jade.vercel.app/" target="_blank"
+                  rel="noopener">Live
                   demo</a><a href="https://github.com/bhaveshgarale7855-bit/iron-district-fitness" target="_blank"
                   rel="noopener">GitHub</a></div>
             </div>
@@ -442,6 +580,18 @@
 
     <section>
       <div class="wrap">
+        <h2>Skills and tools</h2>
+        <p class="lead">What I use to build and launch your project.</p>
+        <div class="chips">
+          <span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span>
+          <span class="chip">Git</span><span class="chip">GitHub</span><span class="chip">Vercel</span>
+          <span class="chip">VS Code</span><span class="chip">Google AI Studio</span><span class="chip">AI tools</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
         <div class="note">
           <h2>Let's talk about your website</h2>
           <p>Tell me what your business does. I'll reply with what I can build, how long it takes and the price.</p>
@@ -450,8 +600,11 @@
               href="https://wa.me/7588301650?text=Hi%2C%20I%20want%20a%20website%20for%20my%20business" target="_blank"
               rel="noopener">Message me on WhatsApp</a>
             <!-- STEP 4: apna email -->
-            <a class="btn ghost" href="mailto:Bhaveshgarale7855@gmail.com">Send an email</a>
+            <a class="btn ghost"
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=bhaveshgarale7855@gmail.com&su=Website%20enquiry"
+              target="_blank" rel="noopener">Send an email</a>
           </div>
+          <p style="margin-top:16px;margin-bottom:0">Or email me at bhaveshgarale7855@gmail.com</p>
         </div>
       </div>
     </section>
@@ -460,6 +613,17 @@
   <footer>
     <div class="wrap">© 2026 Bhavesh Yogesh Garale. Built by me.</div>
   </footer>
+
+  <script>
+    (function () {
+      var root = document.documentElement, btn = document.getElementById('themeBtn'), saved = null;
+      try { saved = localStorage.getItem('theme') } catch (e) { }
+      var dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+      function apply() { root.setAttribute('data-theme', dark ? 'dark' : 'light'); btn.textContent = dark ? '☀️' : '🌙' }
+      apply();
+      btn.addEventListener('click', function () { dark = !dark; apply(); try { localStorage.setItem('theme', dark ? 'dark' : 'light') } catch (e) { } });
+    })();
+  </script>
 
 </body>
 
